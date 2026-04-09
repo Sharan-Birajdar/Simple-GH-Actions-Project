@@ -1,10 +1,123 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>GitHub Actions Demo</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DevOps Auto Deployment</title>
+
+<style>
+
+body{
+    margin:0;
+    font-family:Arial, Helvetica, sans-serif;
+    background:linear-gradient(120deg,#1f4037,#99f2c8);
+    color:white;
+    text-align:center;
+}
+
+header{
+    padding:60px 20px;
+}
+
+h1{
+    font-size:50px;
+    margin-bottom:10px;
+}
+
+p{
+    font-size:20px;
+}
+
+.container{
+    display:flex;
+    justify-content:center;
+    gap:30px;
+    margin-top:40px;
+    flex-wrap:wrap;
+}
+
+.card{
+    background:white;
+    color:#333;
+    padding:30px;
+    width:250px;
+    border-radius:10px;
+    box-shadow:0 5px 15px rgba(0,0,0,0.2);
+    transition:0.3s;
+}
+
+.card:hover{
+    transform:translateY(-10px);
+}
+
+footer{
+    margin-top:80px;
+    padding:20px;
+    background:rgba(0,0,0,0.2);
+}
+
+button{
+    margin-top:20px;
+    padding:12px 25px;
+    border:none;
+    border-radius:5px;
+    background:#ff7b54;
+    color:white;
+    font-size:16px;
+    cursor:pointer;
+}
+
+button:hover{
+    background:#ff5722;
+}
+
+</style>
 </head>
+
 <body>
-<h1>Hello from GitHub Actions 🚀</h1>
-<p>This page was deployed automatically using GitHub Actions.</p>
+
+<header>
+
+<h1>🚀 DevOps Auto Deployment</h1>
+
+<p>This website is automatically deployed from GitHub to EC2 using GitHub Actions.</p>
+
+<button onclick="showMessage()">Test Deployment</button>
+
+</header>
+
+<div class="container">
+
+<div class="card">
+<h3>GitHub</h3>
+<p>Source code is stored and version controlled.</p>
+</div>
+
+<div class="card">
+<h3>GitHub Actions</h3>
+<p>CI/CD pipeline automatically deploys code.</p>
+</div>
+
+<div class="card">
+<h3>AWS EC2</h3>
+<p>Application is hosted on an EC2 instance.</p>
+</div>
+
+</div>
+
+<footer>
+
+<p>CI/CD Demo Project | DevOps Practice</p>
+
+</footer>
+
+<script>
+
+function showMessage(){
+    alert("Deployment is working successfully 🚀");
+}
+
+</script>
+
 </body>
 </html>
