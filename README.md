@@ -115,53 +115,91 @@ Vue.js frontend application
 - **static/** and **templates/**  
   Shared web/static content
 
-### Documentation
-The backend includes an MkDocs documentation site with content for:
-- Getting Started
-- System Overview
-- User Guides
-- Operations
-- Administration
-- Compliance
-- Integrations
-- Calculations
-- Technical Documentation
-- Support
-- Releases
-
-Key docs are configured in mkdocs.yml.
 
 ### CI/CD Workflow
 GitHub Actions workflows exist under workflows.
 
-#### dev_code_check.yaml
-- Triggered on PRs to `dev`
-- Uses Ubuntu runner with PostgreSQL service
-- Installs Python dependencies
-- Creates a CI `.env`
-- Runs Django migrations
-- Executes `pytest`
-- Checks formatting with `black`
-- Validates DRF permission classes
+Optimizing tool selection...Searching workspace for deployment-related configuration files.
 
-#### dev_deploy.yml
-- Triggered when PRs to `dev` are closed
-- Uses AWS OIDC to assume deployment role
-- Deploys via AWS SSM to EC2
-- Installs system dependencies needed for PDF processing
-- Syncs repo with `origin/dev`
-- Activates virtual environment
-- Installs Python requirements
-- Runs Django system checks
-- Applies database migrations safely
+Searched for files matching `**/*deploy*`, 7 matches
 
-#### Other workflow files
-- `beta_deploy.yml`
-- `prod_deploy.yml`
-- `docs_deploy.yml`
-- `sonarqube.yml`
-- `claude.yml`
-- `claude-code-review.yml`
+Found the deployment workflow files; next I’m locating all likely deployment-related files so the descriptions cover the relevant set.
+
+Searched for files matching `**/gunicorn*.py`, 2 matches
+
+Searched for files matching `**/*.sh`, 2 matches
+
+Searched for files matching `**/*Docker*`, no matches
+
+Searched for files matching `**/*.yml`, 14 matches
+
+I’ve identified six deployment workflows plus a couple of runtime deploy support files; now I’ll inspect them for concise summaries.
+
+Read [](file:///d%3A/Projects/Reverse_pilot/reverse-pilot-frontend/.github/workflows/dev-deploy.yml#1-1), lines 1 to 120
+
+Read [](file:///d%3A/Projects/Reverse_pilot/reverse-pilot-frontend/.github/workflows/beta-deploy.yml)
+
+Read [](file:///d%3A/Projects/Reverse_pilot/dc_los_django/.github/workflows/dev_deploy.yml#1-1), lines 1 to 120
+
+Read [](file:///d%3A/Projects/Reverse_pilot/reverse-pilot-frontend/.github/workflows/prod-deploy.yml#1-1), lines 1 to 120
+
+Read [](file:///d%3A/Projects/Reverse_pilot/dc_los_django/.github/workflows/prod_deploy.yml#1-1), lines 1 to 120
+
+I’ve captured the main deployment workflows; now I’ll inspect docs deployment and runtime startup files for exact purpose.
+
+Read [](file:///d%3A/Projects/Reverse_pilot/dc_los_django/gunicorn.conf.py#1-1), lines 1 to 120
+
+Read [](file:///d%3A/Projects/Reverse_pilot/dc_los_django/gunicorn_sse.conf.py)
+
+Read [](file:///d%3A/Projects/Reverse_pilot/dc_los_django/.github/workflows/docs_deploy.yml#1-1), lines 1 to 120
+
+Read [](file:///d%3A/Projects/Reverse_pilot/dc_los_django/start-celery.sh)
+
+Read [](file:///d%3A/Projects/Reverse_pilot/dc_los_django/start-dev.sh#1-1), lines 1 to 120
+
+## Deployment files and short descriptions
+
+### prod-deploy.yml
+- Builds the Vue frontend, creates a production `.env`, and packages the dist output.
+- Uploads the build to an S3 `prod/current` bucket path, saves a versioned backup, and deploys via AWS SSM.
+
+### dev-deploy.yml
+- Runs on merges/pushes to `dev`, installs Node dependencies, builds the Vue app, and validates built assets.
+- Creates a deployment manifest and prepares the dev build for deployment, with extra integrity checks.
+
+### beta-deploy.yml
+- Deploys the beta frontend branch by building the app locally and copying `dist/` over SSH to a beta server.
+- Restarts Nginx on the remote host after upload, using beta-specific secrets and SSH key authentication.
+
+### prod_deploy.yml
+- Production Django deploy pipeline that first snapshots RDS for a pre-migration backup and enforces snapshot retention.
+- Continues with database migrations and deploy steps against the prod environment via AWS credentials/SSM.
+
+### dev_deploy.yml
+- Deploys the Django app for `dev` by sending an AWS SSM command to the EC2 host.
+- Syncs code, installs Python requirements, ensures dependencies, and updates the dev instance in-place.
+
+### docs_deploy.yml
+- Builds MkDocs documentation from the docs branch and deploys the generated site to a docs web directory.
+- Uses AWS SSM to run the deployment script on EC2, updates static docs files, and reloads Nginx.
+
+## Runtime deployment support files
+
+### gunicorn.conf.py
+- Gunicorn configuration for the Django app tuned for JVM-aware workloads with controlled worker counts and lifecycle hooks.
+- Sets production logging, max-requests, preload, and JVM-friendly worker behavior.
+
+### gunicorn_sse.conf.py
+- Gunicorn config for SSE handling with `gevent`, long timeouts, and persistent connections.
+- Designed for a separate SSE service endpoint on port `8001`.
+
+### start-dev.sh
+- Local development launcher that starts/stops backend and frontend services together, with PID tracking and log management.
+- Includes environment setup and health checks for a local dev workflow.
+
+### start-celery.sh
+- Starts the Django Celery worker against the project virtualenv and configured queues.
+- Provides a simple command entrypoint for background task processing on the host.
 
 ### Setup Summary
 
