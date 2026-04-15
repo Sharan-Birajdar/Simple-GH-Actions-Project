@@ -57,64 +57,63 @@ Reverse Pilot is a mortgage/loan processing platform with a Django backend and a
 
 This repository has two main application roots:
 
-dc_los_django
+## 1. dc_los_django (Backend - Django)
 
 Backend Django project
-apps/
- contains Django apps like 
-company
-, 
-core
-, 
-loan
-, etc.
-dc_los_django contains Django settings, 
-wsgi.py
-, 
-celery.py
-, auth, logging, and app entrypoints
-templates/
-, 
-static/
-, 
-documents/
-, 
-logs/
-, 
-scripts/
- support the backend
-.github/workflows/
- contains CI/CD workflows for backend deployment and checks
-requirements.txt
-, 
-pytest.ini
-, setup.md, AGENTS.md, CLAUDE.md, 
-mkdocs.yml
- are documentation and setup/config files
-manage.py
- is the Django CLI entrypoint
-reverse-pilot-frontend
+
+### Structure
+
+- **apps/**  
+  Contains Django apps like `company`, `core`, `loan`, etc.
+
+- **dc_los_django/**  
+  Contains Django settings, `wsgi.py`, `celery.py`, authentication, logging, and app entrypoints
+
+- **templates/**, **static/**, **documents/**, **logs/**, **scripts/**  
+  Support the backend
+
+- **.github/workflows/**  
+  Contains CI/CD workflows for backend deployment and checks
+
+- **requirements.txt**, **pytest.ini**, **setup.md**, **AGENTS.md**, **CLAUDE.md**, **mkdocs.yml**  
+  Documentation and setup/config files
+
+- **manage.py**  
+  Django CLI entrypoint
+
+
+## 2. reverse-pilot-frontend (Frontend - Vue.js)
 
 Vue.js frontend application
-package.json
- + package-lock.json
-src/
- for Vue source files
-public/
- static web assets
-.github/workflows/
- contains frontend deployment workflows
-README.md includes npm setup/build commands
-Other supporting top-level folders include:
 
-docs/
- for documentation and architecture notes
-scripts/
- for project utilities
-static/
- and 
-templates/
- for shared web/static content
+### Structure
+
+- **package.json**, **package-lock.json**  
+  Dependency management
+
+- **src/**  
+  Vue source files
+
+- **public/**  
+  Static web assets
+
+- **.github/workflows/**  
+  Frontend deployment workflows
+
+- **README.md**  
+  Includes npm setup and build commands
+
+
+## 📂 Other Supporting Directories
+
+- **docs/**  
+  Documentation and architecture notes
+
+- **scripts/**  
+  Project utilities
+
+- **static/** and **templates/**  
+  Shared web/static content
 
 ### Documentation
 The backend includes an MkDocs documentation site with content for:
