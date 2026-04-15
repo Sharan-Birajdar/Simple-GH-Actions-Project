@@ -46,15 +46,15 @@ This repository is a Laravel-based PHP web application named **Demand Conversion
   - `build:sales-notes` builds sales-notes-editor.js
 
 ### Integrations and libraries
-- AWS: S3, ELB, Auto Scaling, CloudWatch, SSM
-- DocuSign: `tucker-eric/laravel-docusign`
-- FedEx API wrapper
-- Twilio SDK
-- Social auth providers: Microsoft Azure, Zoho
-- PDF libraries: Dompdf, FPDI, TCPDF, PDF merger tools
-- Excel/Word: `maatwebsite/excel`, `phpoffice/phpspreadsheet`, `phpoffice/phpword`
-- HTML sanitization: `ezyang/htmlpurifier`
-- Custom/private package: `south-river-mtg/laravel-extensions`
+- AWS (S3, ELB, Auto Scaling, CloudWatch, SSM): Cloud services for storage, load balancing, scaling, monitoring, and server management.
+- DocuSign (laravel-docusign): Used to send, sign, and manage digital documents.
+- FedEx API wrapper: Integrates shipping, tracking, and logistics services from FedEx.
+- Twilio SDK: Enables SMS, calls, and communication features in applications.
+- Social auth (Azure, Zoho): Allows users to log in using Microsoft or Zoho accounts.
+- PDF libraries (Dompdf, FPDI, TCPDF): Create, edit, and merge PDF files programmatically.
+- Excel/Word (maatwebsite, phpspreadsheet, phpword): Read, write, and manage Excel and Word documents.
+- HTML sanitization (HTMLPurifier): Cleans HTML to prevent security issues like XSS.
+- Custom package (laravel-extensions): Provides additional custom features for the project.
 
 ---
 
