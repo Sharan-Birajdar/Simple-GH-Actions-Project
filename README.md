@@ -55,20 +55,66 @@ Reverse Pilot is a mortgage/loan processing platform with a Django backend and a
 
 ### Project Structure
 
-#### Backend
-- `apps/`: multiple Django apps including `company`, `core`, `credit_report`, `fha_integration`, `notifications`, `title_portal`
-- dc_los_django: Django project settings, URLs, ASGI/WGSI, logging, OAuth backends
-- `docs/`: MkDocs documentation content
-- `oauth2_provider_migrations/`: OAuth toolkit migrations
-- `pytest.ini`: test configuration
-- mkdocs.yml: documentation site config
-- requirements.txt: Python dependencies
+This repository has two main application roots:
 
-#### Frontend
-- `src/`: Vue source code
-- package.json: frontend dependencies and scripts
-- `babel.config.js`, `tailwind.config.js`, `vue.config.js`: build and tool configuration
-- `public/`: static assets
+dc_los_django
+
+Backend Django project
+apps/
+ contains Django apps like 
+company
+, 
+core
+, 
+loan
+, etc.
+dc_los_django contains Django settings, 
+wsgi.py
+, 
+celery.py
+, auth, logging, and app entrypoints
+templates/
+, 
+static/
+, 
+documents/
+, 
+logs/
+, 
+scripts/
+ support the backend
+.github/workflows/
+ contains CI/CD workflows for backend deployment and checks
+requirements.txt
+, 
+pytest.ini
+, setup.md, AGENTS.md, CLAUDE.md, 
+mkdocs.yml
+ are documentation and setup/config files
+manage.py
+ is the Django CLI entrypoint
+reverse-pilot-frontend
+
+Vue.js frontend application
+package.json
+ + package-lock.json
+src/
+ for Vue source files
+public/
+ static web assets
+.github/workflows/
+ contains frontend deployment workflows
+README.md includes npm setup/build commands
+Other supporting top-level folders include:
+
+docs/
+ for documentation and architecture notes
+scripts/
+ for project utilities
+static/
+ and 
+templates/
+ for shared web/static content
 
 ### Documentation
 The backend includes an MkDocs documentation site with content for:
