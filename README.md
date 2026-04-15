@@ -1,6 +1,5 @@
 # Simple-GH-Actions-Project
 
-```md
 # South River Mortgage WP
 
 This repository contains the WordPress-based application for the South River Mortgage platform, used to manage website content, user interactions, and mortgage-related workflows.
@@ -45,7 +44,6 @@ The repository is used to:
 
 ## Project Structure
 
-```
 
 .
 ├── wp-content/
@@ -57,7 +55,6 @@ The repository is used to:
 ├── .github/workflows/
 └── scripts/
 
-```
 
 ## Key Features
 
@@ -82,7 +79,6 @@ This project uses GitHub Actions for automated deployment.
 
 ### Deployment Flow
 
-```
 
 Code Push (GitHub)
 ↓
@@ -98,7 +94,6 @@ Deploy to ECS Cluster
 ↓
 Invalidate CloudFront Cache
 
-```
 
 ## Docker Usage
 
@@ -165,4 +160,3 @@ This repository is a production-ready WordPress application designed for:
 - Mortgage business websites  
 - Customer interaction and lead generation  
 - Scalable, automated deployment using AWS  
-```
