@@ -119,46 +119,6 @@ Vue.js frontend application
 ### CI/CD Workflow
 GitHub Actions workflows exist under workflows.
 
-Optimizing tool selection...Searching workspace for deployment-related configuration files.
-
-Searched for files matching `**/*deploy*`, 7 matches
-
-Found the deployment workflow files; next I’m locating all likely deployment-related files so the descriptions cover the relevant set.
-
-Searched for files matching `**/gunicorn*.py`, 2 matches
-
-Searched for files matching `**/*.sh`, 2 matches
-
-Searched for files matching `**/*Docker*`, no matches
-
-Searched for files matching `**/*.yml`, 14 matches
-
-I’ve identified six deployment workflows plus a couple of runtime deploy support files; now I’ll inspect them for concise summaries.
-
-Read [](file:///d%3A/Projects/Reverse_pilot/reverse-pilot-frontend/.github/workflows/dev-deploy.yml#1-1), lines 1 to 120
-
-Read [](file:///d%3A/Projects/Reverse_pilot/reverse-pilot-frontend/.github/workflows/beta-deploy.yml)
-
-Read [](file:///d%3A/Projects/Reverse_pilot/dc_los_django/.github/workflows/dev_deploy.yml#1-1), lines 1 to 120
-
-Read [](file:///d%3A/Projects/Reverse_pilot/reverse-pilot-frontend/.github/workflows/prod-deploy.yml#1-1), lines 1 to 120
-
-Read [](file:///d%3A/Projects/Reverse_pilot/dc_los_django/.github/workflows/prod_deploy.yml#1-1), lines 1 to 120
-
-I’ve captured the main deployment workflows; now I’ll inspect docs deployment and runtime startup files for exact purpose.
-
-Read [](file:///d%3A/Projects/Reverse_pilot/dc_los_django/gunicorn.conf.py#1-1), lines 1 to 120
-
-Read [](file:///d%3A/Projects/Reverse_pilot/dc_los_django/gunicorn_sse.conf.py)
-
-Read [](file:///d%3A/Projects/Reverse_pilot/dc_los_django/.github/workflows/docs_deploy.yml#1-1), lines 1 to 120
-
-Read [](file:///d%3A/Projects/Reverse_pilot/dc_los_django/start-celery.sh)
-
-Read [](file:///d%3A/Projects/Reverse_pilot/dc_los_django/start-dev.sh#1-1), lines 1 to 120
-
-## Deployment files and short descriptions
-
 ### prod-deploy.yml
 - Builds the Vue frontend, creates a production `.env`, and packages the dist output.
 - Uploads the build to an S3 `prod/current` bucket path, saves a versioned backup, and deploys via AWS SSM.
